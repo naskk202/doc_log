@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">Delete Profile</h1>
+    <div>
+        <form action="" method="post">
+
+            {{ form }}
+            {% csrf_token %}
+
+            <button class="btn btn-danger mt-2" type="submit">Delete</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if patient %}
+        <a href="{% url 'patient details' patient.user_id %}">{{ patient }}</a>
+    {% else %}
+        There is no patient with EGN: {{ searched }}
+    {% endif %}
+
+{% endblock %}

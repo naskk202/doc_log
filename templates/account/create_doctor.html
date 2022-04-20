@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" action={% url 'doctor registration' %} >
+        <p>Email: {{ form.email }}</p>
+        <p>Password: {{ form.password1 }}</p>
+        <p>Password confirmation: {{ form.password2 }}</p>
+        <p>First name: {{ form.first_name }}</p>
+        <p>Last Name: {{ form.last_name }}</p>
+        <p>Profile picture: {{ form.profile_picture }}</p>
+        <p>Specialisation: {{ form.specialisation }}</p>
+        <p>Work time from: <input type="time" id="start" name="work-time-from"></p>
+        <p>Work time to: <input type="time" id="start" name="work-time-to"></p>
+        <p>Address: {{ form.address }}</p>
+        <p>Education: {{ form.education }}</p>
+        <p>Qualification: {{ form.qualification }}</p>
+        <p>Biography: {{ form.biography }}</p>
+
+
+{#        {{ form }}#}
+        {% csrf_token %}
+        <button class="btn btn-primary mt-2" type="submit">Create</button>
+    </form>
+
+{% endblock %}

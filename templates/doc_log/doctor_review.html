@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" action="">
+        {{ form }}
+        {% csrf_token %}
+        <button class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+
+{#<div class="star-wrapper">#}
+{#  <a href="#" class="fas fa-star s1">1</a>#}
+{#  <a href="#" class="fas fa-star s2">2</a>#}
+{#  <a href="#" class="fas fa-star s3">3</a>#}
+{#  <a href="#" class="fas fa-star s4">4</a>#}
+{#  <a href="#" class="fas fa-star s5">5</a>#}
+{#</div>#}
+<script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">Edit Your Profile</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'doctor edit' request.user.id %}">
+{#        <p>First name: {{ form.first_name }}</p>#}
+{#        <p>Last Name: {{ form.last_name }}</p>#}
+{#        <p>Profile picture: <img src="{{ object.profile_picture.url }}" width="80" height="80" alt="">{{ form.profile_picture }}</p>#}
+{#        <p>Specialisation: {{ form.specialisation }}</p>#}
+{#        <p>Work time from: <input type="time" id="start" name="work-time-from" value="{{ form.work_time_from }}"></p>#}
+{#        <p>Work time to: <input type="time" id="start" name="work-time-to" value="{{ form.work_time_to }}"></p>#}
+{#        <p>Address: {{ form.address }}</p>#}
+{#        <p>Education: {{ form.education }}</p>#}
+{#        <p>Qualification: {{ form.qualification }}</p>#}
+{#        <p>Biography: {{ form.biography }}</p>#}
+{{ form }}
+        {% csrf_token %}
+        <button class="btn btn-primary mt-2" type="submit">Edit</button>
+    </form>
+{% endblock %}

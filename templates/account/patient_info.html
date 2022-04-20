@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="
+        my_background_pic
+        profile-info-container
+{#        d-flex#}
+{#        flex-md-row#}
+{#        flex-column#}
+{#        justify-content-around#}
+{#        align-items-md-start#}
+{#        align-items-center#}
+{#        h-100#}
+{#        pt-5#}
+{#        pb-5#}
+    ">
+        <div class="profile-column">
+            <h1>This is patient profile</h1>
+
+            <div>
+                <p>Name: {{ object.first_name }} {{ object.last_name }}</p>
+                <p>Age: {{ object.age }}</p>
+                <p>Gender: {{ object.gender }}</p>
+                <p>EGN: {{ object.egn }}</p>
+                {% if object.phone_number %}
+                    <p>phone_number: {{ object.phone_number }}</p>
+                {% endif %}
+                {% if object.blood_type %}
+                    <p>blood_type: {{ object.blood_type }}</p>
+                {% endif %}
+                {% if object.allergens %}
+                    <p>allergens: {{ object.allergens }}</p>
+                {% endif %}
+                {% if object.operations %}
+                    <p>operations: {{ object.operations }}</p>
+                {% endif %}
+                {% if object.vaccines %}
+                    <p>vaccines: {{ object.vaccines }}</p>
+                {% endif %}
+            </div>
+
+            {% if is_owner %}
+                <a href="{% url 'patient edit' object.user_id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete user' object.user_id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'change password' object.user_id %}" class="btn btn-info">Change password</a>
+            {% endif %}
+        </div>
+        <div class="profile-column">
+            <h1>Visitations</h1>
+            {% if not page_obj %}
+                <p>No previous visits</p>
+            {% else %}
+                {% for el in page_obj %}
+                    <p>Diagnose: {{ el.diagnose }}</p>
+                    <p>Physical signature: {{ el.physical_signature }}</p>
+                    <p>Condition: {{ el.condition }}</p>
+                    <p>Drugs: {{ el.drugs }}</p>
+                    <p>Next appointment date: {{ el.next_appointment_date }}</p>
+                    <p>Date of visitation: {{ el.date_of_visitation }}</p>
+                    <p>Doctor: {{ el.doctor }}</p>
+                    <br>
+                {% endfor %}
+
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+

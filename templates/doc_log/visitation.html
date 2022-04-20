@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data" action="">
+        {{ form }}
+        {% csrf_token %}
+        <p>Next appointment date: <input type="datetime-local" id="start" name="next-appointment-date-time"></p>
+        <button class="btn btn-primary mt-2" type="submit">Submit</button>
+    </form>
+
+{% endblock %}
