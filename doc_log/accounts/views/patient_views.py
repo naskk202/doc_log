@@ -29,7 +29,7 @@ class EditPatientView(views.UpdateView):
     template_name = 'account/edit_patient.html'
 
     def get_success_url(self):
-        return reverse('doctor details', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('patient details', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class PatientDetailsView(views.DetailView):
