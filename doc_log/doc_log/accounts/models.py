@@ -171,6 +171,15 @@ class SpecialisationModel(models.Model):
     def __str__(self):
         return self.specialisation
 
+    def save(self):
+        for el in self.SPECIALISATION:
+            SpecialisationModel.add(el[1])
+
+        SpecialisationModel.save()
+
+
+
+
 
 class DoctorsModel(models.Model):
     FIRST_NAME_MIN_LENGTH = 2
