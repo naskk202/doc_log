@@ -152,7 +152,8 @@ class DoctorRegistrationForm(BootstrapFormMixin, auth_forms.UserCreationForm):
     )
 
     specialisation = forms.ChoiceField(
-        choices=((el.id, el.specialisation) for el in SpecialisationModel.objects.all())
+        choices=DoctorsModel.SPECIALISATION
+        #choices=((el.id, el.specialisation) for el in SpecialisationModel.objects.all())
         # SpecialisationModel.SPECIALISATION
 
     )

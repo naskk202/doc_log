@@ -151,7 +151,38 @@ class PatientModel(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class SpecialisationModel(models.Model):
+#
+# class SpecialisationModel(models.Model):
+#     SPECIALISATION = (
+#         ('1', 'Pediatrician'),
+#         ('2', 'Neurologist'),
+#         ('3', 'Dermatologist'),
+#         ('4', 'Surgeon'),
+#         ('5', 'Virologist'),
+#         ('6', 'Cardiologist'),
+#         ('7', 'ENT'),
+#         ('8', 'Gynecologist'),
+#         ('9', 'Urologist'),
+#         ('10', 'Dentist'),
+#     )
+#     specialisation = models.CharField(
+#         max_length=30,
+#     )
+#
+#     def __str__(self):
+#         return self.specialisation
+
+
+class DoctorsModel(models.Model):
+    FIRST_NAME_MIN_LENGTH = 2
+    FIRST_NAME_MAX_LENGTH = 30
+    LAST_NAME_MIN_LENGTH = 2
+    LAST_NAME_MAX_LENGTH = 30
+
+    FREE_TEXT_MAX_LEN = 120
+
+    IMAGE_MAX_SIZE_IN_MB = 5
+
     SPECIALISATION = (
         ('1', 'Pediatrician'),
         ('2', 'Neurologist'),
@@ -164,32 +195,6 @@ class SpecialisationModel(models.Model):
         ('9', 'Urologist'),
         ('10', 'Dentist'),
     )
-    specialisation = models.CharField(
-        max_length=30,
-    )
-
-    def __str__(self):
-        return self.specialisation
-
-    def save(self):
-        for el in self.SPECIALISATION:
-            SpecialisationModel.add(el[1])
-
-        SpecialisationModel.save()
-
-
-
-
-
-class DoctorsModel(models.Model):
-    FIRST_NAME_MIN_LENGTH = 2
-    FIRST_NAME_MAX_LENGTH = 30
-    LAST_NAME_MIN_LENGTH = 2
-    LAST_NAME_MAX_LENGTH = 30
-
-    FREE_TEXT_MAX_LEN = 120
-
-    IMAGE_MAX_SIZE_IN_MB = 5
 
     first_name = models.CharField(
         max_length=FIRST_NAME_MAX_LENGTH,
@@ -251,9 +256,14 @@ class DoctorsModel(models.Model):
 
     )
 
-    specialisation = models.ForeignKey(
-        SpecialisationModel,
-        on_delete=models.CASCADE,
+    # specialisation = models.ForeignKey(
+    #     SpecialisationModel,
+    #     on_delete=models.CASCADE,
+    # )
+
+    specialisation = models.CharField(
+        max_length=20,
+        choices=SPECIALISATION,
     )
 
     def __str__(self):

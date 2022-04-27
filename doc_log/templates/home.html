@@ -1,10 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
+{#    <div>#}
+{#        <div class="d-flex flex-wrap my_background_pic profile-info-container">#}
+{#            {% for el in specialisations %}#}
+{#                <a class="btn btn-primary btn-lg d-flex align-items-center justify-content-center me-5 mb-5"#}
+{#                   style="width: 150px; height: 100px" href="{% url 'specialists' el.id %}">{{ el }} </a>#}
+{#            {% endfor %}#}
+{#        </div>#}
+        {#        {% if request.user.is_authenticated %}#}
+        {#            <form action="" method="get">#}
+        {#                <input name="q" type="text" placeholder="Search...">#}
+        {#            </form>#}
+        {#        {% endif %}#}
+{##}
+{#        <script src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>#}
+{#        <div id="map_canvas" style="width:530px; height:250px"></div>#}
+{#        <label for="keyword">Location :</label>#}
+{#        <input type="text" name="keyword" id="keyword">#}
+{##}
+{##}
+{#    </div>#}
+{#    #}
+        <div>
         <div class="d-flex flex-wrap my_background_pic profile-info-container">
-            {% for el in specialisations %}
+            {% for i, el in specialisations %}
                 <a class="btn btn-primary btn-lg d-flex align-items-center justify-content-center me-5 mb-5"
-                   style="width: 150px; height: 100px" href="{% url 'specialists' el.id %}">{{ el }} </a>
+                   style="width: 150px; height: 100px" href="{% url 'specialists' i %}">{{ el }} </a>
             {% endfor %}
         </div>
         {#        {% if request.user.is_authenticated %}#}

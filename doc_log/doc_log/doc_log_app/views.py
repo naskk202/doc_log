@@ -11,10 +11,21 @@ from doc_log.doc_log_app.models import VisitationModel, DoctorReviewModel
 class HomeView(views.TemplateView):
     template_name = 'home.html'
 
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #
+    #     specialisation = SpecialisationModel.objects.all()
+    #
+    #     context.update({
+    #         'specialisations': specialisation,
+    #     })
+    #
+    #     return
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        specialisation = SpecialisationModel.objects.all()
+        specialisation = DoctorsModel.SPECIALISATION
 
         context.update({
             'specialisations': specialisation,
