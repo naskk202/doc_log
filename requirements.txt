@@ -1,8 +1,11 @@
 argh==0.26.2
 asgiref==3.5.0
+certifi==2021.10.8
+cloudinary==1.29.0
 common==0.1.2
 Django==4.0.3
 django-bootstrap-datepicker-plus==4.0.0
+gunicorn==20.1.0
 lxml==4.8.0
 Pillow==9.1.0
 psycopg2==2.9.3
@@ -14,3 +17,4 @@ sqlparse==0.4.2
 tool==0.8.0
 tools==0.1.9
 tzdata==2022.1
+urllib3==1.26.9
