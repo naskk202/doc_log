@@ -16,6 +16,7 @@ class AppUserModel(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     DOCTOR = 1
     PATIENT = 2
+    ADMIN = 3
 
     ROLE_CHOICES = (
         (DOCTOR, 'Doctor'),
@@ -38,8 +39,7 @@ class AppUserModel(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     role = models.SmallIntegerField(
         choices=ROLE_CHOICES,
-        blank=True,
-        null=True,
+        default=3,
     )
 
     USERNAME_FIELD = 'email'
