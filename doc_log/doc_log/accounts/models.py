@@ -251,6 +251,11 @@ class DoctorsModel(models.Model):
         null=True,
     )
 
+    specialisation = models.CharField(
+        max_length=20,
+        choices=SPECIALISATION,
+    )
+
     user = models.OneToOneField(
         AppUserModel,
         on_delete=models.CASCADE,
@@ -263,10 +268,7 @@ class DoctorsModel(models.Model):
     #     on_delete=models.CASCADE,
     # )
 
-    specialisation = models.CharField(
-        max_length=20,
-        choices=SPECIALISATION,
-    )
+
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
