@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
-from doc_log.accounts.models import DoctorsModel, SpecialisationModel
+from doc_log.accounts.models import DoctorsModel
 from doc_log.common.helpers import in_doctors_group_check
 from doc_log.doc_log_app.forms import VisitationForm, DoctorReviewForm
 from doc_log.doc_log_app.models import VisitationModel, DoctorReviewModel

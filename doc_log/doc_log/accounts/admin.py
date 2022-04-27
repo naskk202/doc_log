@@ -1,11 +1,7 @@
 from django.contrib import admin
 
-from doc_log.accounts.models import PatientModel, DoctorsModel, AppUserModel, SpecialisationModel
+from doc_log.accounts.models import PatientModel, DoctorsModel, AppUserModel
 
-
-@admin.register(SpecialisationModel)
-class SpecialisationAdmin(admin.ModelAdmin):
-    pass
 
 @admin.register(AppUserModel)
 class UserAdmin(admin.ModelAdmin):

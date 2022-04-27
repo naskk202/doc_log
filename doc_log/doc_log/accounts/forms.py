@@ -3,7 +3,7 @@ from django.contrib.auth import forms as auth_forms, get_user_model
 from django.contrib.auth.models import Group
 from django.core.validators import MinLengthValidator, MaxLengthValidator
 
-from doc_log.accounts.models import AppUserModel, PatientModel, DoctorsModel, SpecialisationModel
+from doc_log.accounts.models import AppUserModel, PatientModel, DoctorsModel
 from doc_log.common.helpers import BootstrapFormMixin
 from doc_log.common.validators import only_char_validator, only_digit_validator, image_size_validator_in_mb
 
