@@ -38,6 +38,8 @@ class AppUserModel(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 
     role = models.SmallIntegerField(
         choices=ROLE_CHOICES,
+        blank=True,
+        null=True,
     )
 
     USERNAME_FIELD = 'email'
