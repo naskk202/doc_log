@@ -16,8 +16,6 @@
         <p>Qualification: {{ form.qualification }}</p>
         <p>Biography: {{ form.biography }}</p>
 
-
-{#        {{ form }}#}
         {% csrf_token %}
         <button class="btn btn-primary mt-2" type="submit">Create</button>
     </form>
