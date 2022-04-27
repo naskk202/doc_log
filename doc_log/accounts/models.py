@@ -1,3 +1,5 @@
+from os import path
+
 from django.contrib.auth import models as auth_models
 from django.contrib.auth.models import Group
 from django.core.validators import MinLengthValidator
@@ -203,7 +205,7 @@ class DoctorsModel(models.Model):
 
     #   --- not required---
     profile_picture = models.ImageField(
-        upload_to='static/images/profile_pics',
+        upload_to=path.join('static/images/profile_pics'),
         blank=True,
         null=True,
         validators=(

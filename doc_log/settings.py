@@ -89,6 +89,12 @@ CACHES = {
     }
 }
 
+# cloudinary.config(
+#   cloud_name = "df5ttwpdp",
+#   api_key = "558654217687525",
+#   api_secret = "OSVZFSfH14Yj3gZZ_QgiH4Bqrdo"
+# )
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
