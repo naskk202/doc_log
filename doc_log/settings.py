@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+import cloudinary
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +40,7 @@ THIRD_PARTY_APPS = (
 INSTALLED_APPS = DJANGO_APPS + MY_APS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -89,11 +92,11 @@ CACHES = {
     }
 }
 
-# cloudinary.config(
-#   cloud_name = "df5ttwpdp",
-#   api_key = "558654217687525",
-#   api_secret = "OSVZFSfH14Yj3gZZ_QgiH4Bqrdo"
-# )
+cloudinary.config(
+    cloud_name="df5ttwpdp",
+    api_key="558654217687525",
+    api_secret="OSVZFSfH14Yj3gZZ_QgiH4Bqrdo"
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,32 +127,17 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-# STATIC_URL = 'static/'
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 AUTH_USER_MODEL = "accounts.AppUserModel"
-
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
 
 STATIC_ROOT = 'static/'
 STATIC_URL = '/static/'
 
-# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGGING = {
     'version': 1,
