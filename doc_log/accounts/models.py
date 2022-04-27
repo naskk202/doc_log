@@ -4,6 +4,7 @@ from django.contrib.auth import models as auth_models
 from django.contrib.auth.models import Group
 from django.core.validators import MinLengthValidator
 from django.db import models
+from cloudinary import models as cloudinary_models
 
 from doc_log.accounts.managers import AppUserManager
 from doc_log.common.validators import only_char_validator, only_digit_validator, \
@@ -204,16 +205,18 @@ class DoctorsModel(models.Model):
     address = models.TextField()
 
     #   --- not required---
-    profile_picture = models.ImageField(
-        upload_to=path.join('static/images/profile_pics'),
-        blank=True,
-        null=True,
-        validators=(
-            image_size_validator_in_mb,
-            # This can make problem
-            # if someone uploads a 1TB file, I probably run out of hard drive space before the user gets a form error
-        )
-    )
+    profile_picture = cloudinary_models.CloudinaryField('image')
+
+    # models.ImageField(
+    # upload_to=path.join('static/images/profile_pics'),
+    # blank=True,
+    # null=True,
+    # validators=(
+    #     image_size_validator_in_mb,
+    # This can make problem
+    # if someone uploads a 1TB file, I probably run out of hard drive space before the user gets a form error
+    #     )
+    # )
     education = models.CharField(
         max_length=FREE_TEXT_MAX_LEN,
         blank=True,
