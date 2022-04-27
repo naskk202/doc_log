@@ -40,7 +40,7 @@ class SpecialistsView(views.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        docs = self.model.objects.filter(specialisation_id=self.kwargs['pk']).distinct()
+        docs = self.model.objects.filter(specialisation=self.kwargs['pk']).distinct()
 
         return docs
 
