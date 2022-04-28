@@ -36,7 +36,7 @@ MY_APS = (
 )
 
 THIRD_PARTY_APPS = (
-    'bootstrap_datepicker_plus',
+    #  'bootstrap_datepicker_plus',
 )
 
 INSTALLED_APPS = DJANGO_APPS + MY_APS + THIRD_PARTY_APPS
