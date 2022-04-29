@@ -133,10 +133,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.AppUserModel"
 
 STATIC_ROOT = os.path.join('staticfiles/')
-STATIC_URL = os.path.join('../static/')
+STATIC_URL = os.path.join('static/')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
