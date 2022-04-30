@@ -146,9 +146,9 @@ class DoctorRegistrationForm(BootstrapFormMixin, auth_forms.UserCreationForm):
 
     profile_picture = forms.ImageField(
         required=False,
-        validators=(
-            image_size_validator_in_mb,
-        )
+        # validators=(
+        #     image_size_validator_in_mb,
+        # )
     )
 
     specialisation = forms.ChoiceField(
