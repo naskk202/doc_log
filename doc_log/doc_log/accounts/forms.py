@@ -1,3 +1,4 @@
+import cloudinary
 from django import forms
 from django.contrib.auth import forms as auth_forms, get_user_model
 from django.contrib.auth.models import Group
@@ -144,7 +145,7 @@ class DoctorRegistrationForm(BootstrapFormMixin, auth_forms.UserCreationForm):
         )
     )
 
-    profile_picture = forms.ImageField(
+    profile_picture = cloudinary.CloudinaryImage(
         required=False,
         # validators=(
         #     image_size_validator_in_mb,
@@ -153,7 +154,7 @@ class DoctorRegistrationForm(BootstrapFormMixin, auth_forms.UserCreationForm):
 
     specialisation = forms.ChoiceField(
         choices=DoctorsModel.SPECIALISATION
-        #choices=((el.id, el.specialisation) for el in SpecialisationModel.objects.all())
+        # choices=((el.id, el.specialisation) for el in SpecialisationModel.objects.all())
         # SpecialisationModel.SPECIALISATION
 
     )
