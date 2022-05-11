@@ -146,7 +146,7 @@ class DoctorRegistrationForm(BootstrapFormMixin, auth_forms.UserCreationForm):
     )
 
     profile_picture = cloudinary.CloudinaryImage(
-        required=False,
+        #required=False,
         # validators=(
         #     image_size_validator_in_mb,
         # )
